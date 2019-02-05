@@ -89,10 +89,10 @@ opacity: 0.4;
 			<br><br>
 			<span>Follow camera: <input type="checkbox" id="camera-toggle"></span>
 		</div>
-		<button onclick="fidbtup();"  onmousedown="fidbtup();" onmouseup="fidbtdw();" id="idbtup"></button>
-		<button  onclick="fidbtupdw();" onmousedown="fidbtupdw();" onmouseup="fidbtdwdw();" id="idbtdw"></button>
-		<button  onclick="fidbtuplf();" onmousedown="fidbtuplf();" onmouseup="fidbtdwlf();" id="idbtlf"></button>
-		<button   onclick="fidbtupdr();" onmousedown="fidbtupdr();" onmouseup="fidbtdwdr();" id="idbtdr"></button>
+		<button onmouseover="fidbtup();" onmouseout="fidbtdw();" id="idbtup"></button>
+		<button  onmousedown="fidbtupdw();" onmouseup="fidbtdwdw();" id="idbtdw"></button>
+		<button  onmousedown="fidbtuplf();" onmouseup="fidbtdwlf();" id="idbtlf"></button>
+		<button   onmousedown="fidbtupdr();" onmouseup="fidbtdwdr();" id="idbtdr"></button>
 <p id="idp">carro</p>
 		<div id="container"></div>
 
@@ -114,12 +114,15 @@ var bolf=false;
 var boldw=false;
 var boldr=false;
 var bollf=false;
+var idx=0;
 function fidbtup(){
   bolf=true;
   xc("adelante");
+idx=idx+1;
+  console.log("ups");
 }
 function fidbtdw(){
-	xc("no adelantes");
+	xc(bolf);
   bolf=false;
 }
 function xc(st){document.getElementById("idp").innerHTML=st;}
