@@ -116,39 +116,44 @@ var boldr=false;
 var bollf=false;
 function fidbtup(){
   bolf=true;
+  xc("adelante");
 }
 function fidbtdw(){
-
+	xc("no adelantes");
   bolf=false;
 }
+function xc(st){document.getElementById("idp").innerHTML=st;}
 
 
 
 function fidbtupdw(){
+	xc("abajo");
 	boldw=true;
   }
   function fidbtdwdw(){
-  
+	xc("no abajo");
 	boldw=false;
   }
   
 
   function fidbtupdr(){
+	xc("derecha");
 	boldr=true;
   }
   function fidbtdwdr(){
-  
+	xc("no derecha");
 	boldr=false;
   }
   
   
   function fidbtuplf(){
   bollf=true;
-
+  xc("zquierda");
 }
 function fidbtdwlf(){
 
   bollf=false;
+  xc("no zquierda");
 }
 
 
