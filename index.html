@@ -45,6 +45,36 @@
 				opacity: 0.4;
 			}
 
+			#idbtdw{
+
+position: absolute;
+top: 42%;
+left:10%;;
+z-index: 333;
+width: 33px;
+height: 33px;
+opacity: 0.4;
+}
+#idbtlf{
+	position: absolute;
+top: 32%;
+left:2%;;
+z-index: 333;
+width: 33px;
+height: 33px;
+opacity: 0.4;
+
+}
+#idbtdr{
+	position: absolute;
+top: 32%;
+left:12%;;
+z-index: 333;
+width: 33px;
+height: 33px;
+opacity: 0.4;
+
+}
 		</style>
 	</head>
 
@@ -60,6 +90,9 @@
 			<span>Follow camera: <input type="checkbox" id="camera-toggle"></span>
 		</div>
 		<button  onmousedown="fidbtup();" onmouseup="fidbtdw();" id="idbtup"></button>
+		<button  onmousedown="fidbtupdw();" onmouseup="fidbtdwdw();" id="idbtdw"></button>
+		<button  onmousedown="fidbtlf();" onmouseup="fidbtlf();" id="idbtlf"></button>
+		<button  onmousedown="fidbtup();" onmouseup="fidbtdw();" id="idbtdr"></button>
 <p id="idp">carro</p>
 		<div id="container"></div>
 
@@ -78,32 +111,51 @@
 var car;
 
 var bolf=false;
+var boldw=false;
+var boldr=false;
+var bollf=false;
 function fidbtup(){
-/*	$('body').keypress(function(e) {
-   // alert(e.which);
-
-   document.getElementById("idp").innerHTML=e.which;
-  });
-
-  simulateKeyPress("w");*/
-  // car.controls.moveForward =true;
-  // console.log(car);
-  // console.log(car.controls.moveForward);
   bolf=true;
 }
 function fidbtdw(){
-/*	$('body').keypress(function(e) {
-   // alert(e.which);
 
-   document.getElementById("idp").innerHTML=e.which;
-  });
-
-  simulateKeyPress("w");*/
-  // car.controls.moveForward =true;
-  // console.log(car);
-  // console.log(car.controls.moveForward);
   bolf=false;
 }
+
+
+
+function fidbtupdw(){
+	boldw=true;
+  }
+  function fidbtdwdw(){
+  
+	boldw=false;
+  }
+  
+
+  function fidbtupdr(){
+	boldr=true;
+  }
+  function fidbtdwdr(){
+  
+	boldr=false;
+  }
+  
+  
+  function fidbtuplf(){
+  bollf=true;
+}
+function fidbtdwlf(){
+
+  bollf=false;
+}
+
+
+  
+
+
+
+
 
 function simulateKeyPress(character) {
 

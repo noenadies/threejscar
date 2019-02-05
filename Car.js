@@ -107,16 +107,16 @@ THREE.Car = ( function ( ) {
 				case controlKeys.BRAKE:
 					controls.brake = true;
 					controls.moveForward = false;
-					controls.moveBackward = false;
+					boldw = false;
 					break;
 
 				case controlKeys.UP: bolf = true; break;
 
-				case controlKeys.DOWN: controls.moveBackward = true; break;
+				case controlKeys.DOWN: boldw = true; break;
 
-				case controlKeys.LEFT: controls.moveLeft = true; break;
+				case controlKeys.LEFT: bollf = true; break;
 
-				case controlKeys.RIGHT: controls.moveRight = true; break;
+				case controlKeys.RIGHT: boldr = true; break;
 
 			}
 
@@ -130,11 +130,11 @@ THREE.Car = ( function ( ) {
 
 				case controlKeys.UP: bolf = false; break;
 
-				case controlKeys.DOWN: controls.moveBackward = false; break;
+				case controlKeys.DOWN: boldw = false; break;
 
-				case controlKeys.LEFT: controls.moveLeft = false; break;
+				case controlKeys.LEFT: bollf = false; break;
 
-				case controlKeys.RIGHT: controls.moveRight = false; break;
+				case controlKeys.RIGHT: boldr = false; break;
 
 			}
 
@@ -162,27 +162,27 @@ THREE.Car = ( function ( ) {
 document.getElementById("idp").innerHTML="adelante";
 			}
 
-			if ( controls.moveBackward ) {
+			if ( boldw ) {
 
 				this.speed = THREE.Math.clamp( this.speed - delta * accelerationReverse, maxSpeedReverse, this.maxSpeed );
 				acceleration = THREE.Math.clamp( acceleration - delta, - 1, 1 );
 
 			}
 
-			if ( controls.moveLeft ) {
+			if ( bollf ) {
 
 				wheelOrientation = THREE.Math.clamp( wheelOrientation + delta * steeringWheelSpeed, - maxSteeringRotation, maxSteeringRotation );
 
 			}
 
-			if ( controls.moveRight ) {
+			if ( boldr ) {
 
 				wheelOrientation = THREE.Math.clamp( wheelOrientation - delta * steeringWheelSpeed, - maxSteeringRotation, maxSteeringRotation );
 
 			}
 
 			// this.speed decay
-			if ( ! ( bolf || controls.moveBackward ) ) {
+			if ( ! ( bolf || boldw ) ) {
 
 				if ( this.speed > 0 ) {
 
@@ -203,7 +203,7 @@ document.getElementById("idp").innerHTML="adelante";
 			}
 
 			// steering decay
-			if ( ! ( controls.moveLeft || controls.moveRight ) ) {
+			if ( ! ( bollf || boldr ) ) {
 
 				if ( wheelOrientation > 0 ) {
 
