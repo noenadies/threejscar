@@ -23,6 +23,28 @@
 				color: blue;
 				font-weight: bold;
 			}
+
+			#idp{
+
+				position: absolute;
+				top:12%;
+				left: 50%;
+				font-size: 30px;
+				color: rgb(139, 9, 0);
+				z-index: 12;
+			}
+
+			#idbtup{
+
+				position: absolute;
+				top: 22%;
+				left:10%;;
+				z-index: 12;
+				width: 33px;
+				height: 33px;
+				opacity: 0.4;
+			}
+
 		</style>
 	</head>
 
@@ -37,7 +59,8 @@
 			<br><br>
 			<span>Follow camera: <input type="checkbox" id="camera-toggle"></span>
 		</div>
-
+		<button  onmousedown="fidbtup();" onmouseup="fidbtdw();" id="idbtup"></button>
+<p id="idp">carro</p>
 		<div id="container"></div>
 
 		<script src="three.js"></script>
@@ -49,8 +72,54 @@
 
 		<script src="WebGL.js"></script>
 		<script src="stats.min.js"></script>
+		<script src="jquery-3.3.1.min.js"></script>
 
 		<script>
+var car;
+
+var bolf=false;
+function fidbtup(){
+/*	$('body').keypress(function(e) {
+   // alert(e.which);
+
+   document.getElementById("idp").innerHTML=e.which;
+  });
+
+  simulateKeyPress("w");*/
+  // car.controls.moveForward =true;
+  // console.log(car);
+  // console.log(car.controls.moveForward);
+  bolf=true;
+}
+function fidbtdw(){
+/*	$('body').keypress(function(e) {
+   // alert(e.which);
+
+   document.getElementById("idp").innerHTML=e.which;
+  });
+
+  simulateKeyPress("w");*/
+  // car.controls.moveForward =true;
+  // console.log(car);
+  // console.log(car.controls.moveForward);
+  bolf=false;
+}
+
+function simulateKeyPress(character) {
+
+	alert(character.charCodeAt(0));
+  jQuery.event.trigger({ type : 'keypress', which : 39 });
+}
+
+
+
+
+
+
+
+
+
+
 
 			if ( WEBGL.isWebGLAvailable() === false ) {
 
@@ -69,7 +138,7 @@
 
 			var lightHolder = new THREE.Group();
 			var clock = new THREE.Clock();
-			var car = new THREE.Car();
+		 car = new THREE.Car();
 			car.turningRadius = 75;
 
 			var carParts = {

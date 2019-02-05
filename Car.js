@@ -110,7 +110,7 @@ THREE.Car = ( function ( ) {
 					controls.moveBackward = false;
 					break;
 
-				case controlKeys.UP: controls.moveForward = true; break;
+				case controlKeys.UP: bolf = true; break;
 
 				case controlKeys.DOWN: controls.moveBackward = true; break;
 
@@ -128,7 +128,7 @@ THREE.Car = ( function ( ) {
 
 				case controlKeys.BRAKE: controls.brake = false; break;
 
-				case controlKeys.UP: controls.moveForward = false; break;
+				case controlKeys.UP: bolf = false; break;
 
 				case controlKeys.DOWN: controls.moveBackward = false; break;
 
@@ -155,11 +155,11 @@ THREE.Car = ( function ( ) {
 
 			if ( controls.brake ) brakingDeceleration = this.brakePower;
 
-			if ( controls.moveForward ) {
+			if ( bolf) {
 
 				this.speed = THREE.Math.clamp( this.speed + delta * this.acceleration, maxSpeedReverse, this.maxSpeed );
 				acceleration = THREE.Math.clamp( acceleration + delta, - 1, 1 );
-
+document.getElementById("idp").innerHTML="adelante";
 			}
 
 			if ( controls.moveBackward ) {
@@ -182,7 +182,7 @@ THREE.Car = ( function ( ) {
 			}
 
 			// this.speed decay
-			if ( ! ( controls.moveForward || controls.moveBackward ) ) {
+			if ( ! ( bolf || controls.moveBackward ) ) {
 
 				if ( this.speed > 0 ) {
 
